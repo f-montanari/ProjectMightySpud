@@ -466,5 +466,39 @@ public class DynamicTerrainChunk : MonoBehaviour
 
         terrainData.SetHeights(0, 0, heights);
 
+    }    
+
+    public float[,] GetTerrainDataHeights()
+    {
+        return terrainData.GetHeights(0, 0, terrainData.heightmapWidth, terrainData.heightmapHeight);
+    }    
+
+    public void SetTerrainDataHeigths(float[,] heights)
+    {        
+        terrain.terrainData.SetHeights(0, 0, heights);
+        //PaintCliffs(terrain.terrainData);
+    }
+
+    public void ClearTerrainDataHeights()
+    {
+        float[,] heights = terrainData.GetHeights(0, 0, terrainData.heightmapWidth, terrainData.heightmapHeight);
+        for (int x = 0; x < terrainData.heightmapWidth; x++)
+        {
+            for (int y = 0; y < terrainData.heightmapHeight; y++)
+            {
+                heights[x, y] = 0;
+            }
+        }
+        terrain.terrainData.SetHeights(0, 0, heights);        
+    }
+
+    public float[,,] GetAlphamaps()
+    {
+        return terrainData.GetAlphamaps(0, 0, terrainData.alphamapWidth, terrainData.alphamapHeight);
+    }
+
+    public void SetAlphamaps(float[,,] alphamaps)
+    {
+        terrainData.SetAlphamaps(0, 0, alphamaps);
     }
 }

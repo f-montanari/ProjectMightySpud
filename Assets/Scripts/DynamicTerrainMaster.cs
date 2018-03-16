@@ -38,7 +38,7 @@ public class DynamicTerrainMaster : MonoBehaviour
     bool rotTest = false;
     void Start () 
     {
-        //BuildFromLandingSpot( new SphericalCoord( rotTest ? -4 : 0, 0 ) );
+        BuildFromLandingSpot( new SphericalCoord( rotTest ? -4 : 0, 0 ) );
     }
 
     void Update()
@@ -211,6 +211,10 @@ public class DynamicTerrainMaster : MonoBehaviour
         return dtc;
     }
 
+    public DynamicTerrainChunk[,] GetTerrainChunks()
+    {
+        return terrainChunks;
+    }
 
     public SphericalCoord WorldToSpherical( Vector3 worldPosition )
     {
